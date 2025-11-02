@@ -25,7 +25,8 @@ def obtener_concesionaria(concesionaria_id):
 )
 def obtener_total_ventas_de_cliente(concesionaria_id, id_cliente):
 
-    servicio = servicio_clientes.ServicioClientes()
+    servicio_concesionarias_principal = servicio_concesionarias.ServicioConcesionarias()
+    servicio = servicio_clientes.ServicioClientes(servicio_concesionarias_principal)
 
     total_ventas = servicio.obtener_total_ventas_por_cliente(
         concesionaria_id, id_cliente
@@ -42,7 +43,8 @@ def obtener_vehiculos(concesionaria_id, sucursal_id):
 
     estado_id = flask.request.args.get("estado_id")
 
-    servicio = servicio_vehiculos.ServicioVehiculos()
+    servicio_concesionarias_principal = servicio_concesionarias.ServicioConcesionarias()
+    servicio = servicio_vehiculos.ServicioVehiculos(servicio_concesionarias_principal)
 
     vehiculos = servicio.obtener_vehiculos_por_sucursal_y_estado(
         concesionaria_id, sucursal_id, estado_id

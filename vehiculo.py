@@ -15,6 +15,15 @@ class Vehiculo(abc.ABC):
         self.__sucursal_id = sucursal_id
         self.__estado_id = estado_id
 
+    def __eq__(self, otro):
+        if not isinstance(otro, Vehiculo):
+            return False
+        return self.obtener_numero_id() == otro.obtener_numero_id()
+    
+    @abc.abstractmethod
+    def __str__(self):
+        pass
+
     def establecer_numero_id(self, numero_id):
         self.__numero_id = numero_id
 
@@ -50,7 +59,3 @@ class Vehiculo(abc.ABC):
 
     def obtener_estado_id(self):
         return self.__estado_id
-
-    @abc.abstractmethod
-    def __str__(self):
-        pass
