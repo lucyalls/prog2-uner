@@ -1,30 +1,44 @@
 class Cliente:
-    pass 
-def __init__(self, nombres, apellidos, email):
-    self.nombres = nombres
-    self.apellidos = apellidos
-    self.email = email
+    
+    def __init__(self, numero_id: int, nombres: str, apellidos: str, email: str):
+        self.numero_id = numero_id
+        self.nombres = nombres
+        self.apellidos = apellidos
+        self.email = email
 
-def establecerNumeroId(self, numeroId):
-    self.numeroId = numeroId
+    def __eq__(self, otro):
+        if not isinstance(otro, Cliente):
+            return False
+        return self.obtener_numero_id() == otro.obtener_numero_id()
 
-def establecerNombres(self, nombres):
-    self.nombres = nombres
+    def __str__(self):
+        info = (
+            f"  [CLIENTE: ID={self.obtener_numero_id()}, "
+            f"Nombre={self.obtener_nombres()} {self.obtener_apellidos()}, "
+            f"Email={self.obtener_email()}]"
+        )
+        return info
 
-def establecerApellidos(self, apellidos):
-    self.apellidos = apellidos
+    def establecer_numero_id(self, numero_id):
+        self.numero_id = numero_id
 
-def establecerEmail(self, email):
-    self.email = email
+    def establecer_nombres(self, nombres):
+        self.nombres = nombres
 
-def obtenerNumeroId(self):
-    return self.numeroId
+    def establecer_apellidos(self, apellidos):
+        self.apellidos = apellidos
 
-def obtenerNombres(self):
-    return self.nombres
+    def establecer_email(self, email):
+        self.email = email
 
-def obtenerApellidos(self):
-    return self.apellidos
+    def obtener_numero_id(self):
+        return self.numero_id
 
-def obtenerEmail(self):
-    return self.email
+    def obtener_nombres(self):
+        return self.nombres
+
+    def obtener_apellidos(self):
+        return self.apellidos
+
+    def obtener_email(self):
+        return self.email
